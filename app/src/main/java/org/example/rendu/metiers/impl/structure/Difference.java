@@ -1,6 +1,7 @@
 package org.example.rendu.metiers.impl.structure;
 
 import org.example.rendu.metiers.api.Requete;
+import org.example.rendu.metiers.api.Visiteur;
 
 import java.util.HashSet;
 import java.util.List;
@@ -31,5 +32,10 @@ public class Difference implements Requete {
         Set<Personne> resultat2 = requete2.executer();
         resultat1.removeAll(resultat2);
         return resultat1;
+    }
+
+    @Override
+    public int accepter(Visiteur visiteur) {
+        return visiteur.visiter(this);
     }
 }

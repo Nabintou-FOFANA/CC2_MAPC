@@ -1,0 +1,23 @@
+@startuml
+class Personne {
+    -String nom
+    -int age
+    -double salaire
+    +Personne(String nom, int age, double salaire)
+    +String getNom()
+    +int getAge()
+    +double getSalaire()
+    +String toString()
+}
+
+class Ensemble {
+    -Set<Personne> personnes
+    +Ensemble(Set<Personne> personnes)
+    +List<Requete> getSousRequetes()
+    +int getProfondeur()
+    +Set<Personne> executer()
+}
+
+Requete <|-- Ensemble
+Ensemble *-- "1..*" Personne
+@enduml

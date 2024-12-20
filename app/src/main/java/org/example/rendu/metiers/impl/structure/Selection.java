@@ -1,6 +1,7 @@
 package org.example.rendu.metiers.impl.structure;
 
 import org.example.rendu.metiers.api.Requete;
+import org.example.rendu.metiers.api.Visiteur;
 
 import java.util.List;
 import java.util.Set;
@@ -31,6 +32,11 @@ public class Selection implements Requete {
         return sousRequete.executer().stream()
                 .filter(predicate)
                 .collect(Collectors.toSet());
+    }
+
+    @Override
+    public int accepter(Visiteur visiteur) {
+        return visiteur.visiter(this);
     }
 }
 

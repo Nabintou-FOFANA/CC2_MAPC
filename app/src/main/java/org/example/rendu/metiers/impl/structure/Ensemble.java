@@ -1,6 +1,8 @@
 package org.example.rendu.metiers.impl.structure;
 
 import org.example.rendu.metiers.api.Requete;
+import org.example.rendu.metiers.api.Visiteur;
+
 
 import java.util.Collections;
 import java.util.List;
@@ -26,5 +28,10 @@ public class Ensemble implements Requete {
     @Override
     public Set<Personne> executer() {
         return personnes;
+    }
+
+    @Override
+    public int accepter(Visiteur visiteur) {
+        return visiteur.visiter(this);
     }
 }
